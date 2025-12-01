@@ -1,0 +1,442 @@
+<!doctype html>
+<head>
+<title>playlist</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Patrick+Hand&family=Quicksand:wght@300;400;600&display=swap" rel="stylesheet">
+
+<style>
+:root {
+  --bg-cream:#f7efe6;
+  --pink:#ffdfe6;
+  --dark-brown:#2e2a28;
+  --stitch:#e6d1d6;
+  --card-bg:#fffaf6;
+  --accent:#fbe3a8;
+  --max-width:980px;
+}
+
+body {
+  margin:0;
+  font-family:"Quicksand", system-ui;
+  background:
+    linear-gradient(90deg, rgba(210,214,122,0.08) 20%, transparent 20%) 0 0/60px 60px,
+    linear-gradient(180deg, rgba(244,200,210,0.06) 20%, transparent 20%) 0 0/60px 60px,
+    linear-gradient(90deg, rgba(210,214,122,0.04) 40%, transparent 40%) 30px 30px/60px 60px,
+    linear-gradient(180deg, rgba(244,200,210,0.04) 40%, transparent 40%) 30px 30px/60px 60px,
+    var(--bg-cream);
+  color:var(--dark-brown);
+  scroll-behavior:smooth;
+}
+
+.wrap {
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  padding:40px 20px;
+}
+
+.card {
+  width:100%;
+  max-width:var(--max-width);
+  background:linear-gradient(180deg,#fffaf7 0%, #fff6f3 100%);
+  border-radius:22px;
+  box-shadow:0 14px 40px rgba(40,30,30,0.12);
+  border:6px solid rgba(0,0,0,0.04);
+  overflow:hidden;
+  position:relative;
+}
+
+.topbar {
+  background:linear-gradient(90deg,#3b3737 0%, #2b2525 100%);
+  color:#f3e9e9;
+  padding:10px 18px;
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  flex-wrap:wrap;
+  gap:10px;
+  font-size:13px;
+}
+
+.top-left {
+  display:flex;
+  align-items:center;
+  gap:10px;
+}
+
+.logo {
+  width:34px;height:34px;
+  background:linear-gradient(135deg,#fdf1f4,#f0f4d1);
+  border-radius:8px;
+  display:flex;align-items:center;justify-content:center;
+  font-family:"Patrick Hand";
+  color:var(--dark-brown);
+  border:2px dashed rgba(255,255,255,0.06);
+}
+
+.nav {
+  display:flex;
+  gap:10px;
+}
+
+.nav a {
+  background:var(--accent);
+  color:var(--dark-brown);
+  font-family:"Patrick Hand";
+  padding:6px 10px;
+  border-radius:12px;
+  border:2px dashed var(--stitch);
+  text-decoration:none;
+  font-size:13px;
+  transition:transform .12s ease, background .12s ease;
+}
+.nav a:hover{transform:translateY(-3px);background:var(--pink);}
+
+.top-right {
+  display:flex;
+  align-items:center;
+  gap:8px;
+}
+
+.section {
+  padding:40px 30px;
+}
+.section h1 {
+  font-family:"Patrick Hand";
+  text-align:center;
+  margin:0 0 25px;
+  font-size:34px;
+}
+
+/* playlist */
+.song {
+  background:linear-gradient(180deg,#fffdf9,#fff6f1);
+  border-radius:16px;
+  border:3px dashed var(--stitch);
+  padding:20px;
+  margin-bottom:24px;
+  box-shadow:0 6px 14px rgba(0,0,0,0.05);
+}
+.song-title {
+  font-family:"Patrick Hand";
+  font-size:22px;
+  font-weight:600;
+  margin-bottom:4px;
+}
+.song-artist {
+  font-size:14px;
+  color:#7b6d6d;
+  margin-bottom:10px;
+}
+audio {
+  width:100%;
+  margin-bottom:12px;
+}
+.lyrics {
+  background:#fffaf6;
+  border:2px dashed var(--stitch);
+  border-radius:10px;
+  padding:10px;
+  max-height:120px;
+  overflow-y:auto;
+  font-size:14px;
+  line-height:1.45;
+  color:#5b4a4a;
+  box-shadow:inset 0 -4px 8px rgba(0,0,0,0.05);
+}
+.lyrics::-webkit-scrollbar {width:6px;}
+.lyrics::-webkit-scrollbar-thumb {background:var(--stitch);border-radius:6px;}
+
+@media (max-width:700px){
+  .section h1{font-size:28px;}
+  .song-title{font-size:20px;}
+  .nav a{font-size:12px;padding:5px 8px;}
+}
+</style>
+</head>
+
+<body>
+<div class="wrap">
+  <div class="card">
+    <div class="topbar">
+      <div class="top-left">
+        <div class="logo">✿</div>
+        <div>
+          <div style="font-weight:700;">card.profile</div>
+          <div style="opacity:0.8;">🎧ྀི playlist</div>
+        </div>
+      </div>
+
+      <div class="nav">
+        <a href="index.html">Profile</a>
+        <a href="playlist.html">Playlist</a>
+      </div>
+
+      <div class="top-right">
+        <span>♬</span>
+        <span>Playlist</span>
+      </div>
+    </div>
+
+    <div class="section" id="playlist">
+      <h1>⋆.˚✮My playlist✮˚.⋆</h1>
+
+      <div class="song">
+        <div class="song-title">Leonora</div>
+        <div class="song-artist">Sugar cane</div>
+        <audio controls>
+          <source src="Leonora.mp3" type="audio/mpeg">
+        </audio>
+        <div class="lyrics">
+          'Tong alay kong harana, para sa dalagang<br>
+Walang kasingganda, amoy-rosas ang halimuyak<br>
+Kung nanaisin ng tadhanang mapanlinlang<br>
+'Di hahayaang mawala pa<br>
+<br>
+'Tong liham na umaasang mata mo ang makabasa<br>
+Handang gawin lahat, maging pamilya'y liligawan<br>
+Ngayon lang nakadama ng wagas na pagkamangha<br>
+Hiling ko lang naman na<br>
+<br>
+Tayo na sanang dalawa ang siyang huli at ang umpisa<br>
+Papatunayang ang unang pag-ibig ay 'di mawawala<br>
+<br>
+Nakailang tula na, ba't tila 'di napupuna?<br>
+Ang tangi kong hiling, hanggang dulo ikaw ang kapiling<br>
+Kung puwede lang, hanggang pangmagpakailanman<br>
+Hinding-hindi na papakawalan kailanman<br>
+<br>
+Ang dating tamis ng pagsasama, nasa'n na? (Hinahanap-hanap ka, whoa)<br>
+Ba't sa 'ting dal'wa, ako na lang ang natira? (Sana'y magkita pa)<br>
+Tinig mong kay ganda, maririnig pa ba?<br>
+Handang tahaking mag-isa kahit wala ka na<br>
+<br>
+Kung nasa'n ka man, nawa ay masaya ka na (palalayain ka, whoa)<br>
+Kahit na 'di na tayo magsasama pa (mahal pa rin kita)<br>
+Dinggin mo lang ang hiling na mag-iingat ka<br>
+Oh, Leonora kong sinta, ah
+        </div>
+      </div>
+
+      <div class="song">
+        <div class="song-title">The perfect pair</div>
+        <div class="song-artist">Beabadoobe</div>
+        <audio controls>
+          <source src="The perfect pair.mp3" type="audio/mpeg">
+        </audio>
+        <div class="lyrics">
+          You ought to know that<br>
+I think we're one and the same<br>
+I don't think we could help it<br>
+No, I don't think we could help it<br>
+We don't talk much<br>
+Guess 'cause nothing has changed<br>
+And I'm not sure I like it<br>
+And I'm so tired of fighting<br>
+<br>
+If I told you, you know how to<br>
+Go and break my heart in two<br>
+'Cause I would anyways<br>
+We'd end up like always<br>
+You know me, you better show me<br>
+That you could say it to my face<br>
+'Cause you know we're the same<br>
+There's worse things I can take<br>
+<br>
+I know you hate it<br>
+When there's nothing to say<br>
+I'm not quite sure we'd fix it<br>
+Guess we're so used to it<br>
+Wish I had known this<br>
+From the beginning<br>
+We find it hard to work out<br>
+Why we have all this doubt<br>
+<br>
+If I told you, you know how to<br>
+Go and break my heart in two<br>
+'Cause I would anyways<br>
+We'd end up like always<br>
+You know me, you better show me<br>
+That you could say it to my face<br>
+'Cause you know we're the same<br>
+There's worse things I can take<br>
+        </div>
+      </div>
+
+      <div class="song">
+        <div class="song-title">Love</div>
+        <div class="song-artist">Wave to earth</div>
+        <audio controls>
+        <source src="Love.mp3" type="audio/mpeg">
+        </audio>
+        <div class="lyrics">
+                       사람 사이 사람<br>
+바람 사이 바람<br>
+각자의 염원이 바래고<br>
+덧칠되어<br>
+<br>
+Hoo 발이 닿을 만큼 굳어지면<br>
+Hah 비로소 내 세상이 되어줘<br>
+Ah (ah)<br>
+나의 작은 마음도<br>
+그 안에 자란 나음도<br>
+부서지고 굳어지고<br>
+녹아내리고 나면<br>
+그제서야 보이는 나의 영원<br>
+<br>
+사람 사이 사랑<br>
+모두 함께 모여서 oh (ah)<br>
+영원을 바라고 몸 마음 묻어내면 oh, oh<br>
+비로소 우리의 세상이 완벽해 oh<br>
+사랑으로, 사랑으로<br>
+나의 작은 마음도<br>
+그 안에 작은 파도처럼<br>
+부서지고 밀려와선<br>
+네게 녹아내리고<br>
+그제서야 보이는 나의 영원 oh, ooh<br>
+        </div>
+      </div>
+
+      <div class="song">
+        <div class="song-title">A night to remember</div>
+        <div class="song-artist">Beabadoobe</div>
+        <audio controls>
+          <source src="A night to remember.mp3" type="audio/mpeg">
+        </audio>
+        <div class="lyrics">
+          Swore I'd seen you before<br>
+Watched you walk through the door<br>
+Something in your eye<br>
+Reminded me of somebody I used to know<br>
+<br>
+You touch my back<br>
+I took your hand<br>
+Something from your touch<br>
+felt shockingly familiar<br>
+And I'd swore I'd seen you before<br>
+<br>
+Oh, I swore I'd seen you before
+<br>
+Underneath the sheets<br>
+You enchanted me<br>
+And whispered sweet nothings in my ear<br>
+I shivered beneath you<br>
+All wrapped up in embers<br>
+It was a night to remember<br>
+<br>
+Then I walked away<br>
+You asked me to stay<br>
+Well, you're thinkin'<br>
+of what could've been<br>
+But you've become<br>
+someone I've seen before<br>
+<br>
+
+I swore I'd seen you before
+<br>
+Underneath the sheets<br>
+You enchanted me<br>
+And whispered sweet nothings in my ear<br>
+I shivered beneath you<br>
+All wrapped up in embers<br>
+It was a night, enchantin' night
+<br>
+To remember  
+        </div>
+      </div>
+
+      <div class="song">
+        <div class="song-title">Swicy</div>
+        <div class="song-artist">UNIS</div>
+        <audio controls>
+          <source src="SWICY.mp3.mp3" type="audio/mpeg">
+        </audio>
+        <div class="lyrics">
+          Chocolate, taco and ice cream<br>
+Kimchi fries 고추장 쿠키<br>
+자극적인 맛있는 음식들 모두<br>
+채우지 못해 need it something new<br>
+상상의 단어로 can make it everything<br>
+짓궂은 chilli 다정한 syrup<br>
+따분하던 너의 일상에 fresh bite<br>
+더 해줄 수 있어 난 flavor<br>
+<br>
+끝도 없이 리필해 my mind like tornado<br>
+알 수 없는 감정의 drama<br>
+아찔하지만 달콤한 순간<br>
+참지 못해 터질 거야<br>
+<br>
+삼켜봐 swicy<br>
+여러 가지 recipe로<br>
+포크로 콱 맘을 가둬<br>
+알잖아 swicy<br>
+조금 쉬워져도<br>
+아직 말야 살짝 쿵 매운 girl
+<br>
+사르르르 swicy<br>
+사르르르르르 sweet and spicy<br>
+사르르르 swicy<br>
+너를 홀릴 my recipe<br>
+사르르르 swicy<br>
+사르르르르르 sweet and spicy<br>
+자꾸 끌려 넌 (ah-ah)
+<br>
+Who's that swi-swicy girl?<br>
+모두들 수군대지<br>
+용기 없이 늘 뒤에 있지<br>
+넘쳐나는 관심은 즐겨볼게<br>
+맘에 든 concept과 좋아한 dessert도<br>
+나조차 몰라 매번 달라져<br>
+안경도 dress도 찰떡인 난데<br>
+하나만 딱 고르긴 어려워 (다 가질래)<br>
+<br>
+어떻게 더 날 표현할까?<br>
+베일에 싸인 캐릭터도 나쁘진 않아<br>
+다 알겠다고 착각할 때<br>
+반전을 좀 보여줄까?<br>
+<br>
+삼켜봐 swicy<br>
+여러 가지 recipe로<br>
+포크로 콱 맘을 가둬<br>
+알잖아 swicy<br>
+조금 쉬워져도<br>
+아직 말야 살짝 쿵 매운 girl<br>
+<br>
+사르르르 swicy<br>
+사르르르르르 sweet and spicy<br>
+사르르르 swicy<br>
+너를 홀릴 my recipe<br>
+사르르르 swicy<br>
+사르르르르르 sweet and spicy<br>
+자꾸 끌려 넌 (ah-ah)<br>
+<br>
+네가 찾던 friend 상상 못 한 taste<br>
+아마도 그건 내가 정답인데<br>
+괜찮은 느낌, 새로운 떨림<br>
+선물은 나란 걸<br>
+자 kick이다<br>
+Da-da-da-ra-ra-ra-da<br>
+Da-da-da-ra-ra-ra<br>
+<br>
+한 입 더 swicy<br>
+멈춰보려 해도<br>
+입안 가득 남아 맴도는 love ya<br>
+사르르르 swicy<br>
+사르르르르르 sweet and spicy<br>
+사르르르 swicy<br>
+너를 홀릴 my recipe<br>
+사르르르 swicy<br>
+사르르르르르 sweet and spicy<br>
+자꾸 끌려 넌 (ah-ah)<br>
+<br>
+Ah-ah<br>
+Ah-ah-ah<br>
+Swicy<br    
+        </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+</body>
+</html>
